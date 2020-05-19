@@ -18,11 +18,11 @@ class VoiceUsageRecordSerializer(serializers.ModelSerializer):
 
 class SubscriptionSerializer(serializers.Serializer):
     id = serializers.IntegerField()
-    type = serializers.CharField(source='get_type')
-    exceeded_by = serializers.DecimalField(max_digits=1000, decimal_places=2)
+    type = serializers.CharField(source="get_type")
+    exceeded_by = serializers.SerializerMethodField()
 
-    def get_type(self, obj):
-        if type(obj) == DataUsageRecord:
-            return "Data"
-        else:
-            return "Voice"
+    def get_exceeded_by(self, obj):
+        exceeding = self.context.get('exceeding')
+        if exceeding != None:
+            return float(obj.price) - float(exceeding)
+        return None
