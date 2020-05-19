@@ -9,7 +9,7 @@ class DataUsageRecordSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class VoiceUsageRecord(serializers.ModelSerializer):
+class VoiceUsageRecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = VoiceUsageRecord
