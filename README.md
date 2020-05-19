@@ -12,7 +12,7 @@ Create models for aggregating subscription usage metrics which will be used for 
 
 We have two types of usage - data usage and voice usage. The raw usage records usage types for these exist in the `DataUsageRecord` and `VoiceUsageRecord` tables. Create models that will use the data from these two tables and store aggregated metrics segmented by date.
 
-**HINT**: Optimize for high volumes of raw usage records, but not long retention periods.
+**NOTE**: You are not required to write the query to populate the new models you create with data from the raw usage records tables. Those raw usage record tables are there for reference.
 
 Create one or both of the APIs below:
 
@@ -28,5 +28,9 @@ Create an API that fetches data usage metrics and voice usage metrics by subscri
 
 ### BONUSES
 
-1. Improve and optimize the existing code where you see fit.
-2. Write tests!
+1. Write a query to efficiently populate your aggregated usage models from the raw usage record tables.
+
+**HINT**: Optimize for high volumes of raw usage records, but not long retention periods.
+
+2. Improve and optimize the existing code where you see fit.
+3. Write tests!
