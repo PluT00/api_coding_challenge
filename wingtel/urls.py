@@ -38,6 +38,6 @@ router.register(r'voice_usage_record', VoiceUsageRecordViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^api/usage/', ExceededSubsListAPIView.as_view()),
+    url(r'^api/usage/', ExceededSubsListAPIView.as_view(), name='exceeded'),
     url(r'^api/', include((router.urls, 'api'), namespace='api')),
 ]
