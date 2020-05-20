@@ -12,6 +12,7 @@ class DataUsageRecordTestCase(TestCase):
             kilobytes_used=10
         )
 
+# Test att_subscription_id field.
     def test_att_subsctiption_id_related_model(self):
         related_model = self.data_usage_record._meta.get_field(
             'att_subscription_id'
@@ -24,6 +25,7 @@ class DataUsageRecordTestCase(TestCase):
         ).null
         self.assertEqual(null, True)
 
+# Test sprint_subscription_id field.
     def test_sprint_subscription_id_related_model(self):
         related_model = self.data_usage_record._meta.get_field(
             'sprint_subscription_id'
@@ -36,6 +38,7 @@ class DataUsageRecordTestCase(TestCase):
         ).null
         self.assertEqual(null, True)
 
+# Test price field.
     def test_price_decimal_places(self):
         decimal_places = self.data_usage_record._meta.get_field(
             'price'
@@ -54,18 +57,21 @@ class DataUsageRecordTestCase(TestCase):
         ).default
         self.assertEqual(default, 0)
 
+# Test usage_date field.
     def test_usage_date_null(self):
         null = self.data_usage_record._meta.get_field(
             'usage_date'
         ).null
         self.assertEqual(null, True)
 
+# Test kilobytes_used field.
     def test_kilobytes_used_null(self):
         null = self.data_usage_record._meta.get_field(
             'kilobytes_used'
         ).null
         self.assertEqual(null, False)
 
+# Test get_type method.
     def test_get_type(self):
         type = self.data_usage_record.get_type()
         self.assertEqual(type, "Data")
@@ -78,6 +84,7 @@ class VoiceUsageRecordTestCase(TestCase):
             seconds_used = 10
         )
 
+# Test att_subscription_id field.
     def test_att_subsctiption_id_related_model(self):
         related_model = self.voice_usage_record._meta.get_field(
             'att_subscription_id'
@@ -90,6 +97,7 @@ class VoiceUsageRecordTestCase(TestCase):
         ).null
         self.assertEqual(null, True)
 
+# Test sprint_subscriptions_id field.
     def test_sprint_subscription_id_related_model(self):
         related_model = self.voice_usage_record._meta.get_field(
             'sprint_subscription_id'
@@ -102,6 +110,7 @@ class VoiceUsageRecordTestCase(TestCase):
         ).null
         self.assertEqual(null, True)
 
+# Test price field.
     def test_price_decimal_places(self):
         decimal_places = self.voice_usage_record._meta.get_field(
             'price'
@@ -120,18 +129,21 @@ class VoiceUsageRecordTestCase(TestCase):
         ).default
         self.assertEqual(default, 0)
 
+# Test usage_date field.
     def test_usage_date_null(self):
         null = self.voice_usage_record._meta.get_field(
             'usage_date'
         ).null
         self.assertEqual(null, True)
 
+# Test seconds_used field.
     def test_seconds_used_null(self):
         null = self.voice_usage_record._meta.get_field(
             'seconds_used'
         ).null
         self.assertEqual(null, False)
 
+# Test get_type method.
     def test_get_type(self):
         type = self.voice_usage_record.get_type()
         self.assertEqual(type, "Voice")

@@ -5,6 +5,7 @@ from rest_framework.test import APITestCase
 
 class ExceededSubsListAPIView(APITestCase):
 
+# Test response status code.
     def test_list_exceeded(self):
         url = reverse('exceeded')
         response = self.client.get(url)
